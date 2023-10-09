@@ -65,3 +65,4 @@ for x in tqdm(range(len(datasets) - 1)):
     df.loc[len(df.index)] = [title, desc, author, contact, email_contact, update_date,url, data_type,access]
 
 
+df.to_csv(r"C:\Users\Chinelo A\Documents\GitHub\usda-data-summary\usda-datasets.csv",index=False)
