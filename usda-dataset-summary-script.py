@@ -9,12 +9,7 @@ import pandas as pd
 import requests
 #import json
 #from bs4 import BeautifulSoup
-#from tqdm import tqdm
-
-import streamlit as st
-# add page header
-st.header('USDA Datasets for Research Projects')
-
+from tqdm import tqdm
 
 # request usda json with dataset information
 result = requests.get('https://www.usda.gov/sites/default/files/documents/data.json' )
@@ -34,7 +29,7 @@ info = list( datasets[0].keys())
 df = pd.DataFrame(columns=["title", "description", "author", "contact","email_contact", "update_date","url","data_type","access"])
 
 x = 0
-for x in range(len(datasets) - 1): 
+for x in tqdm(range(len(datasets) - 1)): 
     # extract df info and save as variables
     title = datasets[x]['title']
     desc = datasets[x]['description']
