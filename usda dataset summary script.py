@@ -2,13 +2,13 @@
 """
 Created on Thu Aug 24 16:25:37 2023
 
-@author: Chinelo_Agbim
+@author: Nelo_Agbim
 """
 
 import pandas as pd
 import requests
 #import json
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 from tqdm import tqdm
 
 result = requests.get('https://www.usda.gov/sites/default/files/documents/data.json' )
