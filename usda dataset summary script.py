@@ -14,7 +14,7 @@ import requests
 import streamlit as st
 # add page header
 st.header("USDA Datasets for Research Projects")
-
+"""
 # request usda json with dataset information
 result = requests.get('https://www.usda.gov/sites/default/files/documents/data.json' )
 # save result as json
@@ -67,4 +67,5 @@ for x in range(len(datasets) - 1):
     access = datasets[x]['accessLevel']
     # save info to dataframe
     df.loc[len(df.index)] = [title, desc, author, contact, email_contact, update_date,url, data_type,access]
+"""
 
