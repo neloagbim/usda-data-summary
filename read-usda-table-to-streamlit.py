@@ -25,7 +25,6 @@ df = pd.read_csv(url)
 # Printing out the first 5 rows of the dataframe to test results
 #print (df.head())
 
-[theme]
 base="dark"
 # create streamlit header
 st.header("USDA Datasets for Research Projects")
