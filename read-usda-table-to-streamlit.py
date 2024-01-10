@@ -29,7 +29,12 @@ df = pd.read_csv(url)
 st.header("USDA Datasets for Research Projects")
 
 # add text input for searching description column
-st.text_input("Search dataset description."," ")
+search_word = st.text_input("Search dataset description."," ")
 
-# show dataframae as table
-st.dataframe(df)
+df_search = df[df["description"].str.contains(search_word)==True]
+
+if len(search_word) == 0:  
+  # show dataframae as table
+  st.dataframe(df)
+else
+  st.dataframe(df_search)
