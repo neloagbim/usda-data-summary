@@ -36,5 +36,5 @@ df_search = df[df["description"].str.contains(search_word)==True]
 if len(search_word) == 0:  
   # show dataframae as table
   st.dataframe(df)
-else
+else:
   st.dataframe(df_search)
