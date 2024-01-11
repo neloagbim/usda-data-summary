@@ -5,7 +5,7 @@ This project takes a JSON of datasets from USDA's website, transforms it into a 
 
 There are 2 scripts in this repository.
 
-1) Reads the USDA json directly from their website, transforms it into a dataframe that describes the dataset, and saves it.
+1) Reads the USDA json directly from their website, transforms it into a dataframe that describes the dataset, and saves it to a google sheet.
 2) Creates a streamlit app where the dataframe can be filtered by description of the dataset.
 
 
