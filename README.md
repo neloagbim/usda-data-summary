@@ -9,9 +9,9 @@ The primary script in this repository does the following:
 2) Transforms it into a dataframe that describes the dataset.
 3) Finally, it  saves the dataframe to a google sheet.
 
-Script: usda-dataset-summary-script.py
-Input: https://www.usda.gov/content/usda-open-data-catalog
-Output: https://docs.google.com/spreadsheets/d/13QpkebvBdk0bWTkX0gtWhcRe8WVVlPbyA2LUyGFZ7TI/edit#gid=0
+1) Script: usda-dataset-summary-script.py
+2) Input: https://www.usda.gov/content/usda-open-data-catalog
+3) Output: https://docs.google.com/spreadsheets/d/13QpkebvBdk0bWTkX0gtWhcRe8WVVlPbyA2LUyGFZ7TI/edit#gid=0
 
 
 
