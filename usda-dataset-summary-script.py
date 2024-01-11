@@ -4,12 +4,18 @@ Created on Thu Aug 24 16:25:37 2023
 
 @author: Nelo_Agbim
 """
-
+# standard libraries
 import pandas as pd
 import requests
-#import json
-#from bs4 import BeautifulSoup
 from tqdm import tqdm
+
+# import libraries for connecting to google sheets
+import gspread
+from gspread_dataframe import set_with_dataframe
+from google.oauth2.service_account import Credentials
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
 
 # request usda json with dataset information
 result = requests.get('https://www.usda.gov/sites/default/files/documents/data.json' )
@@ -29,7 +35,7 @@ info = list( datasets[0].keys())
 df = pd.DataFrame(columns=["title", "description", "author", "contact","email_contact", "update_date","url","data_type","access"])
 
 x = 0
-for x in tqdm(range(len(datasets) - 1)): 
+for x in tqdm(range(len(datasets) - 1)): # use tqdm to track loop progress
     # extract df info and save as variables
     title = datasets[x]['title']
     desc = datasets[x]['description']
@@ -63,12 +69,6 @@ for x in tqdm(range(len(datasets) - 1)):
     access = datasets[x]['accessLevel']
     # save info to dataframe
     df.loc[len(df.index)] = [title, desc, author, contact, email_contact, update_date,url, data_type,access]
-
-import gspread
-from gspread_dataframe import set_with_dataframe
-from google.oauth2.service_account import Credentials
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
 
 # scope of where api will work
 scopes = ['https://www.googleapis.com/auth/spreadsheets',
