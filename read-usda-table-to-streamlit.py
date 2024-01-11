@@ -29,7 +29,7 @@ df = pd.read_csv(url)
 # create streamlit header
 st.title("USDA Datasets for Research Projects")
 # create streamlit title
-st.subheader("Here is a list of USDA datasets for undergraduate students studying food and agriculture")
+st.text("Here is a list of USDA datasets for undergraduate students studying food and agriculture")
 
 # add text input for searching description column
 search_word = st.text_input("Search dataset description."," ")

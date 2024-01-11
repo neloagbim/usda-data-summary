@@ -64,5 +64,30 @@ for x in tqdm(range(len(datasets) - 1)):
     # save info to dataframe
     df.loc[len(df.index)] = [title, desc, author, contact, email_contact, update_date,url, data_type,access]
 
+import gspread
+from gspread_dataframe import set_with_dataframe
+from google.oauth2.service_account import Credentials
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
 
-df.to_csv(r"C:\Users\Chinelo A\Documents\GitHub\usda-data-summary\usda-datasets.csv",index=False)
+# scope of where api will work
+scopes = ['https://www.googleapis.com/auth/spreadsheets',
+          'https://www.googleapis.com/auth/drive']
+
+credentials = Credentials.from_service_account_file(r'C:\Users\NeloAgbim\Documents\Google Sheets Python Json\my-github-projects-410915-057cbdd1bc31.json',  scopes=scopes)
+gc = gspread.authorize(credentials)
+
+gauth = GoogleAuth()
+drive = GoogleDrive(gauth)
+
+# open the google sheet
+gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/13QpkebvBdk0bWTkX0gtWhcRe8WVVlPbyA2LUyGFZ7TI/edit#gid=0')
+# select a work sheet from its name
+worksheet = gs.worksheet('cleaned')
+
+# write to google sheet
+# clear out any contents
+worksheet.clear()
+set_with_dataframe(worksheet, dataframe=df, include_index=False,include_column_header=True,resize=True)
+
+df.to_csv(r"C:\Users\NeloAgbim\Documents\PythonPrjEnvs\usdasummary\github\usda-datasets.csv",index=False)
